@@ -1,4 +1,4 @@
 all:
-	g++ -g -fPIC -Wall -Werror -Wextra -pedantic *.cpp -shared -o libString.so
+	g++ -g -fPIC -w -pedantic String.cpp -shared -o libString.so
 clean:
 	rm libString.so
