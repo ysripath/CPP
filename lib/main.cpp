@@ -14,5 +14,13 @@ int main()
 		cout<<"Empty String"<<endl;
 	else
 		cout<<"Not an empty string, contains - "<<str2.getBuffer()<<endl;
+
+	// Check string reverse;
+	String revStr;// = nullptr;
+	String str_1("Hello World");
+	revStr = String::strrev(str_1);
+	cout<<"Given string is "<<str_1.getBuffer()<<endl;
+	cout<<"Reverse string is "<<revStr.getBuffer()<<endl;
+
 	return 0;
 }
