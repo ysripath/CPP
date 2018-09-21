@@ -20,7 +20,7 @@ String::String(const char  *arg)
 	if (l>0)
 	{
 		bufLength = l;
-		buf = new char[l];
+		buf = new char[l+1];
 		strcpy(buf, arg);
 		emptyFlag = true;
 	}
@@ -38,7 +38,7 @@ String::String(const String &arg)
 	if (l >0)
 	{
 		int l = arg.length();
-		buf = new char[l];
+		buf = new char[l+1];
 		strcpy(buf, arg.getBuffer());
 		bufLength = arg.length();
 		emptyFlag = true;
@@ -54,29 +54,36 @@ String::String(const String &arg)
 String::~String()
 {
 	if (buf != nullptr) {
-		delete buf;
+		delete[] buf;
 		buf = nullptr;
 	}
 }
 
 
-String String::strrev(const String &arg)
+void String::strrev(const String &arg, String **ptr)
 {
 	if (arg.length() == 0)
 	{
-		return String();
+		ptr = nullptr;
+		return;
 	}
 	int l = arg.length();
-	char* temp = new char[l];
+	char* temp = new char[l+1];
+	memset(temp, 0,l+1 );
 	int k = 0;
-	char* copy = new char[l];
+	char* copy = new char[l+1];
 	strcpy(copy, arg.getBuffer());
 	//copy = arg.getBuffer();
 	for (int i = l-1; i >= 0 ; i--) {
 		temp[k++] = copy[i];
 	}
-	String copyStr(temp);
-	return copyStr;
+	*ptr = new String(temp);
+	//String copyStr(temp);
+	delete[] copy;
+	copy = nullptr;
+	delete[] temp;
+	temp = nullptr;
+	//return copyStr;
 }
 
 char* String::getBuffer() const
@@ -100,7 +107,7 @@ String& String::operator= (const String& str)
 	  int l = str.length();
 	  if (l > 0)
 	  {
-		  buf = new char[l];
+		  buf = new char[l+1];
 		  strcpy(buf,str.getBuffer());
 		  emptyFlag = false;
 		  bufLength = l;

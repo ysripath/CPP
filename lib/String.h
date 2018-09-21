@@ -15,7 +15,7 @@ public:
 	String(const char* arg);
 	String(const String &arg);
 	~String();
-	static String strrev(const String &arg); // Returns the reverse of the given string
+	static void strrev(const String &arg, String **ptr); // Returns the reverse of the given string
 
 	int length() const;
 	char* getBuffer() const;

@@ -16,11 +16,13 @@ int main()
 		cout<<"Not an empty string, contains - "<<str2.getBuffer()<<endl;
 
 	// Check string reverse;
-	String revStr;// = nullptr;
+	String* revStr;// = nullptr;
 	String str_1("Hello World");
-	revStr = String::strrev(str_1);
+	String::strrev(str_1, &revStr);
 	cout<<"Given string is "<<str_1.getBuffer()<<endl;
-	cout<<"Reverse string is "<<revStr.getBuffer()<<endl;
+	cout<<"Reverse string is "<<revStr->getBuffer() <<endl;
+	delete revStr;
+	revStr = nullptr;
 
 	return 0;
 }
