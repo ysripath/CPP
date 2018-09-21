@@ -16,6 +16,7 @@ public:
 	String(const String &arg);
 	~String();
 	static void strrev(const String &arg, String **ptr); // Returns the reverse of the given string
+	static int compare(const String &str1, const String &str2); // Compares if two Strings are same else return position of first mismatch
 
 	int length() const;
 	char* getBuffer() const;

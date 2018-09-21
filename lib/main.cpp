@@ -3,6 +3,10 @@
 
 using namespace std;
 
+
+
+void testCompare();
+
 int main()
 {
 	cout<<"HELLO WORLD"<<endl;
@@ -24,5 +28,27 @@ int main()
 	delete revStr;
 	revStr = nullptr;
 
+	testCompare();
+
 	return 0;
+}
+
+
+void testCompare()
+{
+	// Test for String compare
+	String str_1("Hello World");
+	String str_2("Hello World");
+	if (!String::compare(str_1, str_2))
+		cout<<"Duplicate strings"<<endl;
+	else
+		cout<<"Different strings"<<endl;
+
+	String str_3("Hello world");
+	if (!String::compare(str_1, str_3))
+		cout<<"Duplicate strings"<<endl;
+	else {
+		cout<<str_1.getBuffer()<<"\t"<<str_3.getBuffer()<<endl;
+		cout<<"Different strings - "<<String::compare(str_1, str_3)<<endl;
+	}
 }

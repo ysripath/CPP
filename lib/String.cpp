@@ -86,6 +86,28 @@ void String::strrev(const String &arg, String **ptr)
 	//return copyStr;
 }
 
+
+
+int String::compare(const String &str1, const String &str2)
+{
+	if (str1.length() == 0 && str2.length() == 0)
+		return true;
+	int l = (str1.length() < str2.length())?str1.length():str2.length();
+	for (int i = 0; i < l; i++)
+	{
+		if (str1.buf[i] == str2.buf[i])
+			continue;
+		else
+		{
+			return i+1;
+		}
+	}
+	if (str1.length() != str2.length())
+		return l+1;
+	else
+		return 0;
+}
+
 char* String::getBuffer() const
 {
 	return buf;
