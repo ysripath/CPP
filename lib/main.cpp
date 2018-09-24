@@ -7,6 +7,8 @@ using namespace std;
 
 void testCompare();
 
+void testConcatenate();
+
 int main()
 {
 	cout<<"HELLO WORLD"<<endl;
@@ -30,9 +32,23 @@ int main()
 
 	testCompare();
 
+	testConcatenate();
+
 	return 0;
 }
 
+
+void testConcatenate()
+{
+	String str_1("Hello");
+	String str_2(" World");
+	cout<<"Str_1 "<<str_1.getBuffer()<<endl;
+	cout<<"Str_2 "<<str_2.getBuffer()<<endl;
+	str_1 = str_1 + str_2;
+	cout<<"Concatenated string is "<<str_1.getBuffer()<<endl;
+
+
+}
 
 void testCompare()
 {

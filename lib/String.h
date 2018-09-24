@@ -23,5 +23,6 @@ public:
 	bool isEmpty() const;
 
 	// Operator overload
-	String& operator=(const String &rhs);
+	String& operator = (const String &rhs);
+	String& operator + (const String &rhs);
 };

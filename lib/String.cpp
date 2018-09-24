@@ -123,9 +123,33 @@ bool String::isEmpty() const
 	return emptyFlag;
 }
 
-
-String& String::operator= (const String& str)
+String& String::operator + (const String& str)
 {
+	int l2 = str.length();
+	if (l2 > 0)
+	{
+		int l1 = this->length();
+		int totalLength = l1+l2;
+		char* tempBuf = new char[totalLength+1];
+		strcpy(tempBuf, this->getBuffer());
+		strcat(tempBuf, str.getBuffer());
+		delete[] this->buf;
+		this->buf = new char[totalLength+1];
+		strcpy(this->buf, tempBuf);
+		delete[] tempBuf;
+		tempBuf = nullptr;
+		return *this;
+	}
+	else
+	{
+		return *this;
+	}
+}
+
+String& String::operator = (const String& str)
+{
+	if (str.buf == this->buf)
+		return *this;
 	  int l = str.length();
 	  if (l > 0)
 	  {
