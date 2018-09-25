@@ -9,6 +9,8 @@ void testCompare();
 
 void testConcatenate();
 
+void testSubStr();
+
 int main()
 {
 	cout<<"HELLO WORLD"<<endl;
@@ -34,9 +36,31 @@ int main()
 
 	testConcatenate();
 
+	testSubStr();
 	return 0;
 }
 
+
+void testSubStr()
+{
+	String str_1("Hello");
+
+	String str_2 = str_1.substr(2,2);
+
+	cout<<"Sub string is "<<str_2.getBuffer()<<endl;
+
+	String str_3 = str_2.substr(3,3);
+	if (str_3.isEmpty())
+		cout<<"Sub string is empty"<<endl;
+	else
+		cout<<"Sub string is "<<str_3.getBuffer()<<endl;
+
+	String str_4 = str_1.substr(1,123);
+	if (str_4.isEmpty())
+		cout<<"Sub string is empty"<<endl;
+	else
+		cout<<"Sub string is "<<str_4.getBuffer()<<endl;
+}
 
 void testConcatenate()
 {

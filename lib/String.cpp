@@ -22,13 +22,13 @@ String::String(const char  *arg)
 		bufLength = l;
 		buf = new char[l+1];
 		strcpy(buf, arg);
-		emptyFlag = true;
+		emptyFlag = false;
 	}
 	else
 	{
 		buf = nullptr;
 		bufLength = 0;
-		emptyFlag = false;
+		emptyFlag = true;
 	}
 }
 
@@ -41,13 +41,13 @@ String::String(const String &arg)
 		buf = new char[l+1];
 		strcpy(buf, arg.getBuffer());
 		bufLength = arg.length();
-		emptyFlag = true;
+		emptyFlag = false;
 	}
 	else
 	{
 		buf = nullptr;
 		bufLength = 0;
-		emptyFlag = false;
+		emptyFlag = true;
 	}
 }
 
@@ -59,6 +59,35 @@ String::~String()
 	}
 }
 
+
+String String::substr(int pos, int len)
+{
+	if (len <= 0)
+		return String();
+
+	if (pos >= bufLength)
+		return String();
+	if (len > bufLength)
+	{
+		len = bufLength - pos;
+	}
+
+	char* tempBuf = new char [len+1];
+	int i = pos;
+	int count = 0;
+	while (count < len
+		   && i < bufLength)
+	{
+		tempBuf[count++] = buf[i++];
+	}
+	tempBuf[count] = '\0';
+
+	String str(tempBuf);
+
+	delete[] tempBuf;
+	tempBuf = nullptr;
+	return str;
+}
 
 void String::strrev(const String &arg, String **ptr)
 {
