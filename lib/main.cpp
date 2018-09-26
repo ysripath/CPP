@@ -3,7 +3,7 @@
 
 using namespace std;
 
-
+void testOutput();
 
 void testCompare();
 
@@ -32,6 +32,8 @@ int main()
 	delete revStr;
 	revStr = nullptr;
 
+	testOutput();
+
 	testCompare();
 
 	testConcatenate();
@@ -40,6 +42,12 @@ int main()
 	return 0;
 }
 
+
+void testOutput()
+{
+	String str_1("Output str");
+	cout<<str_1<<endl;
+}
 
 void testSubStr()
 {
@@ -59,7 +67,7 @@ void testSubStr()
 	if (str_4.isEmpty())
 		cout<<"Sub string is empty"<<endl;
 	else
-		cout<<"Sub string is "<<str_4.getBuffer()<<endl;
+		cout<<"Sub string is "<<str_4<<endl;
 }
 
 void testConcatenate()

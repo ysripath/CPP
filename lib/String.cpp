@@ -195,3 +195,10 @@ String& String::operator = (const String& str)
 	  }
 	  return *this;
 }
+
+
+std::ostream& operator << (std::ostream& os, const String &str)
+{
+	os << str.getBuffer();
+	return os;
+}
