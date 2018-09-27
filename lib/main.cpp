@@ -12,6 +12,8 @@ void testConcatenate();
 void testSubStr();
 
 void testCopy();
+
+void testInput();
 int main()
 {
 	cout<<"HELLO WORLD"<<endl;
@@ -42,7 +44,17 @@ int main()
 	testSubStr();
 
 	testCopy();
+
+	testInput();
 	return 0;
+}
+
+void testInput()
+{
+	String str_1;
+	cout<<"Enter string content\n";
+	cin>>str_1;
+	cout<<str_1<<endl;
 }
 
 

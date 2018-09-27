@@ -222,7 +222,14 @@ String& String::operator = (const String& str)
 	  }
 	  return *this;
 }
-
+std::istream& operator >> (std::istream& is, String &str)
+{
+	char temp[100];
+	is.get(temp, 100, '\n');
+	String tempStr(temp);
+	str = tempStr;
+	return is;
+}
 
 std::ostream& operator << (std::ostream& os, const String &str)
 {
