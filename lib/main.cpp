@@ -11,6 +11,7 @@ void testConcatenate();
 
 void testSubStr();
 
+void testCopy();
 int main()
 {
 	cout<<"HELLO WORLD"<<endl;
@@ -39,6 +40,8 @@ int main()
 	testConcatenate();
 
 	testSubStr();
+
+	testCopy();
 	return 0;
 }
 
@@ -99,4 +102,39 @@ void testCompare()
 		cout<<str_1.getBuffer()<<"\t"<<str_3.getBuffer()<<endl;
 		cout<<"Different strings - "<<String::compare(str_1, str_3)<<endl;
 	}
+}
+
+void testCopy()
+{
+	String str_1("Test copy");
+	char* buffer = nullptr;
+
+	int ret = str_1.copy(&buffer, 5, 4);
+	if (ret > 0)
+		cout<<buffer<<endl;
+	else
+		cout<<"no characters werer copied"<<endl;
+
+	delete[] buffer;
+	buffer = nullptr;
+
+	ret = str_1.copy(&buffer, 20, 4);
+	if (ret > 0)
+		cout<<buffer<<endl;
+	else
+		cout<<"no characters werer copied"<<endl;
+
+	delete[] buffer;
+	buffer = nullptr;
+
+	ret = str_1.copy(&buffer, 1, 25);
+	if (ret > 0)
+		cout<<buffer<<endl;
+	else
+		cout<<"no characters werer copied"<<endl;
+
+	delete[] buffer;
+	buffer = nullptr;
+
+
 }

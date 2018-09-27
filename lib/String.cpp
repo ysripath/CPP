@@ -137,6 +137,33 @@ int String::compare(const String &str1, const String &str2)
 		return 0;
 }
 
+
+int String::copy(char **buffer, int pos, int len)
+{
+	if (pos >= bufLength)
+	{
+		*buffer = nullptr;
+		return 0;
+	}
+
+	if (len >= bufLength)
+		len = bufLength;
+
+	int tempL = bufLength -pos;
+	*buffer = new char[tempL+1];
+	memset(*buffer, 0, tempL+1);
+	int k = pos;
+	int count = 0;
+	while (count < len
+		   && k < bufLength) {
+		(*buffer)[count] = buf[k];
+		count++;
+		k++;
+	}
+	(*buffer)[count] = '\0';
+	return count+1;
+}
+
 char* String::getBuffer() const
 {
 	return buf;
