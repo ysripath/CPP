@@ -14,6 +14,8 @@ void testSubStr();
 void testCopy();
 
 void testInput();
+
+void testIndex();
 int main()
 {
 	cout<<"HELLO WORLD"<<endl;
@@ -35,17 +37,18 @@ int main()
 	delete revStr;
 	revStr = nullptr;
 
-	testOutput();
+	//testOutput();
 
-	testCompare();
+	//testCompare();
 
-	testConcatenate();
+	//testConcatenate();
 
-	testSubStr();
+	//testSubStr();
 
-	testCopy();
+	//testCopy();
 
-	testInput();
+	//testInput();
+	testIndex();
 	return 0;
 }
 
@@ -114,6 +117,14 @@ void testCompare()
 		cout<<str_1.getBuffer()<<"\t"<<str_3.getBuffer()<<endl;
 		cout<<"Different strings - "<<String::compare(str_1, str_3)<<endl;
 	}
+}
+
+void testIndex()
+{
+	String str_1("TEST INDEX");
+	cout<<"At index 6 is "<<str_1[6]<<endl;
+
+	cout<<"At index 25 is "<<str_1[25]<<endl;
 }
 
 void testCopy()

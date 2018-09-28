@@ -222,6 +222,20 @@ String& String::operator = (const String& str)
 	  }
 	  return *this;
 }
+
+char& String::operator [] (const int &index)
+{
+	if (index > this->bufLength
+			|| index < 0)
+	{
+		static char tempChar = '\0';
+		return tempChar;
+	}
+	else
+		return this->buf[index];
+}
+
+
 std::istream& operator >> (std::istream& is, String &str)
 {
 	char temp[100];

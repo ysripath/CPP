@@ -28,6 +28,7 @@ public:
 	// Operator overload
 	String& operator = (const String &rhs);
 	String& operator + (const String &rhs);
+	char& operator [] (const int& index);
 	friend std::istream& operator >>(std::istream &is, String &str);
 
 };
