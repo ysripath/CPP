@@ -16,6 +16,10 @@ void testCopy();
 void testInput();
 
 void testIndex();
+
+void testClear();
+
+void testFind();
 int main()
 {
 	cout<<"HELLO WORLD"<<endl;
@@ -48,8 +52,53 @@ int main()
 	//testCopy();
 
 	//testInput();
-	testIndex();
+	//testIndex();
+
+	//testClear();
+
+	testFind();
+
 	return 0;
+}
+
+void testClear()
+{
+	String str_1("Test Clear");
+	cout<<str_1<<endl;
+	str_1.clear();
+
+	if (str_1.isEmpty())
+		cout<<"String cleared\n";
+	else
+		cout<<"String not cleared\n";
+
+}
+
+void testFind()
+{
+	String str_1("Hello World");
+	int lFirstPos = str_1.find_first_of('l');
+	cout<<"First position of l in "<<str_1<<" is "<<lFirstPos<<endl;
+	int lLastPos = str_1.find_last_of('l');
+	cout<<"Last position of l in "<<str_1<<" is "<<lLastPos<<endl;
+	int lCount = str_1.find_n_of('l');
+	cout<<"Count of l in "<<str_1<<" is "<<lCount<<endl;
+
+	int zCount = str_1.find_n_of('z');
+	cout<<"Count of z in "<<str_1<<" is "<<zCount<<endl;
+
+	int zF = str_1.find_first_of('z');
+	cout<<"First pos of z is "<<zF<<endl;
+	int zL = str_1.find_last_of('z');
+	cout<<"Last pos of z is "<<zL<<endl;
+
+	str_1.clear();
+	lFirstPos = str_1.find_first_of('l');
+	cout<<"First position of l in "<<str_1<<" is "<<lFirstPos<<endl;
+	lLastPos = str_1.find_last_of('l');
+	cout<<"Last position of l in "<<str_1<<" is "<<lLastPos<<endl;
+	lCount = str_1.find_n_of('l');
+	cout<<"Count of l in "<<str_1<<" is "<<lCount<<endl;
 }
 
 void testInput()

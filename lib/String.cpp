@@ -164,6 +164,65 @@ int String::copy(char **buffer, int pos, int len)
 	return count+1;
 }
 
+int String::find_first_of(const char ch)
+{
+	if (emptyFlag)
+		return -1;
+	int l = bufLength;
+	int i = 0;
+	while (i < l)
+	{
+		if (buf[i] == ch)
+			return i;
+		i++;
+	}
+	return -1; // ch not found in String
+}
+
+
+int String::find_last_of(const char ch)
+{
+	if (emptyFlag)
+		return -1;
+	int l = bufLength;
+	int i = l-1;
+	while (i >= 0)
+	{
+		if (buf[i] == ch)
+			return i;
+		i--;
+	}
+	return -1; // ch not found in String
+}
+
+
+int String::find_n_of(const char ch)
+{
+	if (emptyFlag)
+		return -1;
+	int l = bufLength;
+	int count = 0;
+	int i = 0;
+
+	while (i < l)
+	{
+		if (buf[i] == ch)
+			count++;
+		i++;
+	}
+	return count;
+}
+
+void String::clear()
+{
+	if (buf == nullptr)
+		return;
+	delete[] buf;
+	buf = nullptr;
+	bufLength = 0;
+	emptyFlag = true;
+}
+
 char* String::getBuffer() const
 {
 	return buf;
@@ -247,6 +306,13 @@ std::istream& operator >> (std::istream& is, String &str)
 
 std::ostream& operator << (std::ostream& os, const String &str)
 {
-	os << str.getBuffer();
+	if (str.emptyFlag)
+	{
+		os << "";
+	}
+	else
+	{
+		os << str.getBuffer();
+	}
 	return os;
 }
