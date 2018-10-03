@@ -23,6 +23,7 @@ public:
 	int find_first_of(const char ch);
 	int find_last_of(const char ch);
 	int find_n_of(const char ch);
+	const char* c_str();
 
 	int length() const;
 	char* getBuffer() const;

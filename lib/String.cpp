@@ -316,3 +316,8 @@ std::ostream& operator << (std::ostream& os, const String &str)
 	}
 	return os;
 }
+
+const char* String::c_str()
+{
+	return buf;
+}

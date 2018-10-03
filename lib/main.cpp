@@ -20,6 +20,8 @@ void testIndex();
 void testClear();
 
 void testFind();
+
+void testc_str();
 int main()
 {
 	cout<<"HELLO WORLD"<<endl;
@@ -56,9 +58,22 @@ int main()
 
 	//testClear();
 
-	testFind();
+	//testFind();
+
+	testc_str();
 
 	return 0;
+}
+
+void testc_str()
+{
+	String str_1("hello world");
+	char* buf = new char[str_1.length()+1];
+	strcpy(buf, str_1.c_str());
+	cout<<"Copied buf is - "<<buf<<endl;
+
+	delete[] buf;
+	buf = nullptr;
 }
 
 void testClear()
