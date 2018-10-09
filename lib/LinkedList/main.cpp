@@ -1,12 +1,14 @@
 #include <iostream>
 #include "List.h"
 
+
+using namespace std;
 int main()
 {
-	List* list = new List();
+	List<int>* list = new List<int>();
 
 	int choice;
-	while()
+	while(true)
 	{
 		cout<<"Enter operation: \n";
 		cout<<"1. Insert at front  2. Insert at back  3. Insert at pos  4. Delete front\n" \
@@ -14,13 +16,27 @@ int main()
 		cin>>choice;
 		switch(choice)
 		{
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-		case 7:
+		case 1: {
+
+		} break;
+		case 2: {
+
+		} break;
+		case 3: {
+
+		} break;
+		case 4: {
+
+		} break;
+		case 5: {
+
+		} break;
+		case 6: {
+
+		} break;
+		case 7: {
+
+		} break;
 		default: break;
 		}
 	}

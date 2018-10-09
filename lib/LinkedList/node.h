@@ -14,5 +14,5 @@ public:
 	~node();
 	T getData();
 	void setData(T val);
-}
+};
 

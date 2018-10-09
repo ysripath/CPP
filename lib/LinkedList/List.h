@@ -8,8 +8,8 @@ template<class T>
 class List
 {
 private:
-	node* head;
-	node* tail;
+	node<T>* head;
+	node<T>* tail;
 public:
 	List();
 	~List();

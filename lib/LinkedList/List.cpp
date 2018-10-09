@@ -4,13 +4,13 @@
 
 T List::head = nullptr;
 
-List::List()
+List<T>::List()
 {
 	head = nullptr;
 	tail = nullptr;
 }
 
-void List::insertFront(T data)
+void List<T>::insertFront(T data)
 {
 	if (head == nullptr)
 	{
@@ -27,7 +27,7 @@ void List::insertFront(T data)
 }
 
 
-void List::insertBack(T data)
+void List<T>::insertBack(T data)
 {
 	if (head == nullptr)
 	{
@@ -41,7 +41,7 @@ void List::insertBack(T data)
 	}
 }
 
-T List::getBack()
+T List<T>::getBack()
 {
 	if (tail != nullptr)
 		return tail->data;
@@ -49,7 +49,7 @@ T List::getBack()
 		return NULL;
 }
 
-T List::getFront()
+T List<T>::getFront()
 {
 	if (head != nullptr)
 	{
@@ -59,7 +59,7 @@ T List::getFront()
 		return NULL;
 }
 
-void List::deleteBack()
+void List<T>::deleteBack()
 {
 	if (head == nullptr)
 		return;
@@ -84,7 +84,7 @@ void List::deleteBack()
 	}
 }
 
-void List::deleteFront()
+void List<T>::deleteFront()
 {
 	if (head == nullptr)
 		return;
@@ -105,7 +105,7 @@ void List::deleteFront()
 }
 
 
-void List::clearList()
+void List<T>::clearList()
 {
 	if (head == nullptr)
 		return;

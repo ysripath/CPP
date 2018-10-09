@@ -1,30 +1,30 @@
 #include "node.h"
 
-node::node()
+node<T>::node()
 {
 	data = 0;
 	next = nullptr;
 }
 
-node::node(T val)
+node<T>::node(T val)
 {
 	data = val;
 	next = nullptr;
 }
 
-node::~node()
+node<T>::~node()
 {
 	if (next != nullptr)
 		delete next;
 	next = nullptr;
 }
 
-T node::getData()
+T node<T>::getData()
 {
 	return data;
 }
 
-void node::setData(T val)
+void node<T>::setData(T val)
 {
 	data = val;
 }
