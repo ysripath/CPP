@@ -17,10 +17,17 @@ int main()
 		switch(choice)
 		{
 		case 1: {
+			cout<<"Enter data\n";
+			int data;
+			cin>>data;
+			list->insertFront(data);
 
 		} break;
 		case 2: {
-
+			cout<<"Enter data\n";
+			int data;
+			cin>>data;
+			list->insertBack(data);
 		} break;
 		case 3: {
 
@@ -35,7 +42,7 @@ int main()
 
 		} break;
 		case 7: {
-
+			list->displayList();
 		} break;
 		default: break;
 		}

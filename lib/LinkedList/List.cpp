@@ -1,46 +1,52 @@
 // Custom Linked List class implementation
 
 #include "List.h"
+#include <iostream>
+using namespace std;
 
-T List::head = nullptr;
-
+template <class T>
 List<T>::List()
 {
 	head = nullptr;
 	tail = nullptr;
 }
 
+
+template <class T>
 void List<T>::insertFront(T data)
 {
 	if (head == nullptr)
 	{
-		head = new node(data);
+		head = new node<T>(data);
 		tail = head;
 		return;
 	}
 	else
 	{
-		node* tempNode = new node(data);
+		node<T>* tempNode = new node<T>(data);
 		tempNode->next = head;
 		head = tempNode;
 	}
 }
 
 
+template <class T>
 void List<T>::insertBack(T data)
 {
 	if (head == nullptr)
 	{
-		head = new node(data);
+		head = new node<T>(data);
 		tail = head;
 	}
 	else
 	{
-		tail->next = new node(data);
+		tail->next = new node<T>(data);
 		tail = tail->next;
 	}
 }
 
+
+template <class T>
 T List<T>::getBack()
 {
 	if (tail != nullptr)
@@ -49,6 +55,7 @@ T List<T>::getBack()
 		return NULL;
 }
 
+template <class T>
 T List<T>::getFront()
 {
 	if (head != nullptr)
@@ -59,6 +66,8 @@ T List<T>::getFront()
 		return NULL;
 }
 
+
+template <class T>
 void List<T>::deleteBack()
 {
 	if (head == nullptr)
@@ -70,8 +79,8 @@ void List<T>::deleteBack()
 		tail = nullptr;
 	}
 	{
-		node* temp = head;
-		node* cur = head;
+		node<T>* temp = head;
+		node<T>* cur = head;
 		while (temp->next)
 		{
 			cur = temp;
@@ -84,6 +93,8 @@ void List<T>::deleteBack()
 	}
 }
 
+
+template <class T>
 void List<T>::deleteFront()
 {
 	if (head == nullptr)
@@ -96,7 +107,7 @@ void List<T>::deleteFront()
 	}
 	else
 	{
-		node* temp = head;
+		node<T>* temp = head;
 		head = head->next;
 		delete temp;
 		temp = nullptr;
@@ -105,11 +116,12 @@ void List<T>::deleteFront()
 }
 
 
+template <class T>
 void List<T>::clearList()
 {
 	if (head == nullptr)
 		return;
-	node* temp = head;
+	node<T>* temp = head;
 	while (head)
 	{
 		temp = head;
@@ -119,4 +131,18 @@ void List<T>::clearList()
 	}
 	head = nullptr;
 	tail = nullptr;
+}
+
+
+template <class T>
+void List<T>::displayList()
+{
+	cout<<"List contents\n";
+	node<T> *temp = head;
+	while (temp)
+	{
+		cout<<temp->getData()<< " ";
+		temp = temp->next;
+	}
+	cout<<endl;
 }

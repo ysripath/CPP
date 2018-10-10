@@ -21,4 +21,5 @@ public:
 	void deleteBack();
 	void deleteFront();
 	void clearList();
+	void displayList();
 };
