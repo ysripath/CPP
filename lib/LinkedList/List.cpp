@@ -146,3 +146,8 @@ void List<T>::displayList()
 	}
 	cout<<endl;
 }
+
+
+template class List<int>;
+template class List<float>;
+template class List<double>;

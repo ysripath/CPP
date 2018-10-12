@@ -5,10 +5,10 @@
 template<class T>
 class node
 {
-private:
-	T data;
-	node* next;
 public:
+	T data; // Make it private
+	node* next; // Mkae it private
+
 	node();
 	node(T val);
 	~node();

@@ -33,3 +33,7 @@ void node<T>::setData(T val)
 {
 	data = val;
 }
+
+template class node<int>;
+template class node<float>;
+template class node<double>;
