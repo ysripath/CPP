@@ -45,6 +45,52 @@ void List<T>::insertBack(T data)
 	}
 }
 
+template <class T>
+void List<T>::insertAtPos(T data, int pos)
+{
+	if (pos < 1)
+	{
+		cout<<"Invalid position\n";
+	}
+	else if (head == nullptr
+			&& pos > 1)
+	{
+		cout <<"Invalid position \n";
+	}
+
+	else if (head == nullptr
+			&& pos == 1)
+	{
+		head = new node<T>(data);
+		tail = head;
+	}
+	else
+	{
+		int count = 0;
+		node<T>* temp = head;
+		while (temp)
+		{
+			count++;
+			if (count == pos)
+			{
+				node<T>* cur = new node<T>(data);
+				cur->next = temp->next;
+				temp->next = cur;
+				if (cur->next == nullptr)
+				{
+					tail = cur;
+				}
+				return;
+			}
+			else
+			{
+				temp = temp->next;
+			}
+		}
+	}
+	return;
+}
+
 
 template <class T>
 T List<T>::getBack()
@@ -78,6 +124,7 @@ void List<T>::deleteBack()
 		head = nullptr;
 		tail = nullptr;
 	}
+	else
 	{
 		node<T>* temp = head;
 		node<T>* cur = head;

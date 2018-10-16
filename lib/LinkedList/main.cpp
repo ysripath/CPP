@@ -30,15 +30,23 @@ int main()
 			list->insertBack(data);
 		} break;
 		case 3: {
+			cout<<"Enter data and position to be inserted in \n";
+			int data;
+			int pos;
+			cin>>data>>pos;
+			list->insertAtPos(data, pos);
 
 		} break;
 		case 4: {
+			list->deleteFront();
 
 		} break;
 		case 5: {
+			list->deleteBack();
 
 		} break;
 		case 6: {
+			list->clearList();
 
 		} break;
 		case 7: {
