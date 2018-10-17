@@ -87,6 +87,11 @@ void List<T>::insertAtPos(T data, int pos)
 				temp = temp->next;
 			}
 		}
+		if (++count == pos)
+		{
+			tail->next = new node<T>(data);
+			tail = tail->next;
+		}
 	}
 	return;
 }
@@ -154,10 +159,9 @@ void List<T>::deleteFront()
 	}
 	else
 	{
-		node<T>* temp = head;
-		head = head->next;
-		delete temp;
-		temp = nullptr;
+		node<T>* temp = head->next;
+		delete head;
+		head = temp;
 	}
 
 }
