@@ -52,7 +52,8 @@ int main()
 		case 7: {
 			list->displayList();
 		} break;
-		default: break;
+		default:
+			return 0;
 		}
 	}
 }

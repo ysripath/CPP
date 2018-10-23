@@ -22,4 +22,6 @@ public:
 	void deleteFront();
 	void clearList();
 	void displayList();
+	void reverseList();
+	friend node<T>* reverseUtil(List<T>* l,node<T>* n);
 };

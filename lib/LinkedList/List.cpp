@@ -198,7 +198,31 @@ void List<T>::displayList()
 	cout<<endl;
 }
 
+template<class T>
+node<T>* reverseUtil(List<T>* l,node<T>* n)
+{
+	if (n->next == nullptr)
+	{
+		l->head = n;
+		return l;
+	}
+	node<T>* tempNode = reverseUtil(l, n->next);
+	tempNode->next = n;
+	return n;
+}
 
+template <class T>
+void List<T>::reverseList()
+{
+	if (head == nullptr && tail == nullptr)
+	{
+		cout<<"empty list\n";
+		return;
+	}
+	tail = reverseUtil(this, head);
+	displayList();
+}
 template class List<int>;
 template class List<float>;
 template class List<double>;
+
