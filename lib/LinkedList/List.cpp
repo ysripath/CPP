@@ -198,15 +198,15 @@ void List<T>::displayList()
 	cout<<endl;
 }
 
-template<class T>
-node<T>* reverseUtil(List<T>* l,node<T>* n)
+
+node<int>* reverseUtil(List<int>* l,node<int>* n)
 {
 	if (n->next == nullptr)
 	{
 		l->head = n;
 		return l;
 	}
-	node<T>* tempNode = reverseUtil(l, n->next);
+	node<int>* tempNode = reverseUtil(l, n->next);
 	tempNode->next = n;
 	return n;
 }

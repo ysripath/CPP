@@ -23,5 +23,8 @@ public:
 	void clearList();
 	void displayList();
 	void reverseList();
-	friend node<T>* reverseUtil(List<T>* l,node<T>* n);
+
+	friend node<int>* reverseUtil(List<int>* l,node<int>* n);
+	friend node<float>* reverseUtil(List<float>* l,node<float>* n);
+	friend node<double>* reverseUtil(List<double>* l,node<double>* n);
 };
